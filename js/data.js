@@ -26,7 +26,6 @@ export const data = {
     {
       id: 1,
       title: "Sandwich de Milanesa",
-      createdAt: "10 de Octubre 2024",
       imgAlt: "Imagen blog 1",
       imgReviewPath: "../assets/img/sanguche-de-milanesa.jpg",
       description: `Disfrutá de nuestro sándwich de milanesa, bien crujiente y acompañado de ingredientes frescos que le dan un toque único.`,
@@ -34,7 +33,6 @@ export const data = {
     {
       id: 2,
       title: "Sopa Paraguaya",
-      createdAt: "10 de Octubre 2024",
       imgAlt: "Imagen blog 2",
       imgReviewPath: "../assets/img/sopa-paraguaya.jpg",
 
@@ -43,7 +41,6 @@ export const data = {
     {
       id: 3,
       title: "Empanadas",
-      createdAt: "10 de Octubre 2024",
       imgAlt: "Imagen blog 3",
       imgReviewPath: "../assets/img/empanadas.jpg",
       description: `Probá nuestras empanadas caseras recién horneadas o fritas, con una masa suave y rellenos generosos que explotan de sabor.`,

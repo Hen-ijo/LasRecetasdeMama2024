@@ -165,10 +165,6 @@ setTimeout(() => {
       title.textContent = review.title;
       contentBlog.appendChild(title);
 
-      const date = document.createElement("span");
-      date.textContent = review.createdAt;
-      contentBlog.appendChild(date);
-
       const description = document.createElement("p");
       description.textContent = review.description;
 
