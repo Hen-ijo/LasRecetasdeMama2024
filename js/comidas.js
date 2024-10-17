@@ -2,26 +2,26 @@
 import { data } from "./data.js";
 
 /* Variables */
-const containerAllLunches = document.getElementById("container-all-lunches");
-const loader5 = document.getElementById("loader5");
-const messageEmptyDataAllLunches = document.getElementById("messageAllLunches");
+const containerAllDinners = document.getElementById("container-all-lunches");
+const loader6 = document.getElementById("loader5");
+const messageEmptyDataAllDinners = document.getElementById("messageAllLunches");
 const searchInput = document.getElementById("searchInput1");
 /* Variables */
 
 // Mostrar/Ocultar Loader
 const displayLoader = (show) => {
-  loader5.style.display = show ? "flex" : "none";
-  containerAllLunches.style.display = show ? "none" : "grid";
+  loader6.style.display = show ? "flex" : "none";
+  containerAllDinners.style.display = show ? "none" : "grid";
 };
 
 // Mostrar/Ocultar mensaje
 const displayMessage = (show) => {
-  messageEmptyDataAllLunches.style.display = show ? "block" : "none";
+  messageEmptyDataAllDinners.style.display = show ? "block" : "none";
 };
 
-// Renderizar los almuerzos en el contenedor
+// Renderizar las comidas en el contenedor
 const renderProducts = (products) => {
-  containerAllLunches.innerHTML = ""; // Limpiar los almuerzos anteriores
+  containerAllDinners.innerHTML = ""; // Limpiar las comidas anteriores
 
   if (products.length > 0) {
     products.forEach((product) => {
@@ -57,7 +57,7 @@ const renderProducts = (products) => {
       contentCard.appendChild(button);
       productCard.appendChild(containerImg);
       productCard.appendChild(contentCard);
-      containerAllLunches.appendChild(productCard);
+      containerAllDinners.appendChild(productCard);
     });
     displayMessage(false);
   } else {
@@ -65,9 +65,9 @@ const renderProducts = (products) => {
   }
 };
 
-// Filtrar los productos en función del término de búsqueda
+// Filtrar las comidas en función del término de búsqueda
 const filterProducts = (searchTerm) => {
-  const filteredProducts = data.allLunches.filter((product) =>
+  const filteredProducts = data.allDinners.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   renderProducts(filteredProducts);
@@ -83,10 +83,10 @@ searchInput.addEventListener("input", () => {
   }, 500);
 });
 
-// Mostrar los almuerzos inicialmente despues de cargar los datos
+// Mostrar las comidas inicialmente despues de cargar los datos
 setTimeout(() => {
-  if (data.allLunches && data.allLunches.length > 0) {
-    renderProducts(data.allLunches);
+  if (data.allDinners && data.allDinners.length > 0) {
+    renderProducts(data.allDinners);
     displayLoader(false);
   } else {
     displayLoader(false);
