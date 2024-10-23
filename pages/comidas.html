@@ -14,21 +14,34 @@
       src="https://kit.fontawesome.com/81581fb069.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/utils.js"></script>
     <script defer type="module" src="../js/comidas.js"></script>
     <title>Las recetas de mamá</title>
   </head>
   <body>
     <header>
-      <div class="container-hero">
+      <div class="desktop">
+        <a class="container-logo-desktop" href="/">
+          <i class="fa-solid fa-mug-hot"></i>
+          <h1 class="logo-desktop">Las recetas de mamá</h1>
+        </a>
+
+        <nav class="navbar-desktop">
+          <ul class="menu-desktop">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/pages/comidas.html">Comidas</a></li>
+            <li><a href="/pages/contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="mobile">
         <a class="container-logo" href="/">
           <i class="fa-solid fa-mug-hot"></i>
           <h1 class="logo">Las recetas de mamá</h1>
         </a>
-      </div>
 
-      <div class="container-navbar">
-        <nav class="navbar container">
+        <nav class="navbar">
           <div class="menu-btn">
             <i class="fa-solid fa-bars"></i>
           </div>
@@ -40,6 +53,8 @@
         </nav>
       </div>
     </header>
+    <div class="overlay"></div>
+
     <section class="banner">
       <div class="content-banner">
         <p>Todo Delicioso</p>
@@ -140,14 +155,6 @@
               >
                 <i class="fa-brands fa-instagram"></i>
               </a>
-            </div>
-          </div>
-
-          <div class="newsletter">
-            <p class="title-footer">Metodos de Pago</p>
-
-            <div class="content">
-              <img src="../assets/img/payment.png" alt="Pagos" />
             </div>
           </div>
         </div>

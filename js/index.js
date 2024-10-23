@@ -20,7 +20,36 @@ const messageEmptyDataSpecialProducts = document.getElementById(
   "messageSpecialProducts"
 );
 const messageEmptyDataReview = document.getElementById("messageReview");
+
+let selectedProducts = [];
 /* Variables */
+
+/* Función para enviar pedido por WhatsApp */
+const redirectToWhatsApp = () => {
+  const whatsappNumber = "541122553067";
+  const productList = selectedProducts.map(
+    (product) => `${product.title} - ${product.price}`
+  );
+
+  let formattedList = "";
+  if (productList.length === 1) {
+    formattedList = productList[0];
+  } else if (productList.length === 2) {
+    formattedList = productList.join(" y ");
+  } else if (productList.length > 2) {
+    formattedList =
+      productList.slice(0, -1).join(", ") +
+      " y " +
+      productList[productList.length - 1];
+  }
+
+  const message = `Hola, me gustaría realizar el siguiente pedido:\n${formattedList}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+
+  window.open(whatsappLink, "_blank");
+};
 
 /* Best Products */
 setTimeout(() => {
@@ -50,10 +79,56 @@ setTimeout(() => {
       price.classList.add("price");
       price.textContent = product.price;
 
-      const button = document.createElement("a");
+      const button = document.createElement("button");
       button.classList.add("btn-product");
-      button.href = product.link;
       button.textContent = "Comprar";
+      button.onclick = () => {
+        // Confirmación antes de agregar
+        Swal.fire({
+          title: `¿Desea agregar ${product.title} al pedido?`,
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Sí",
+          cancelButtonText: "No",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            selectedProducts.push(product);
+
+            // Mostrar mensaje de agregado
+            Swal.fire({
+              title: `${product.title} ha sido agregado a su pedido.`,
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then(() => {
+              // Preguntar si quiere seguir agregando productos
+              Swal.fire({
+                title: "¿Desea agregar otro producto?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "Sí",
+                cancelButtonText: "No",
+              }).then((result) => {
+                if (!result.isConfirmed) {
+                  // Si no quiere continuar, preguntar si desea enviar el pedido
+                  Swal.fire({
+                    title: "¿Desea enviar su pedido por WhatsApp?",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Sí",
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      redirectToWhatsApp();
+                    }
+                  });
+                }
+              });
+            });
+          } else {
+            return;
+          }
+        });
+      };
 
       contentCard.appendChild(title);
       contentCard.appendChild(price);
@@ -119,10 +194,56 @@ setTimeout(() => {
       price.classList.add("price");
       price.textContent = product.price;
 
-      const button = document.createElement("a");
+      const button = document.createElement("button");
       button.classList.add("btn-product");
-      button.href = product.link;
       button.textContent = "Comprar";
+      button.onclick = () => {
+        // Confirmación antes de agregar
+        Swal.fire({
+          title: `¿Desea agregar ${product.title} al pedido?`,
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Sí",
+          cancelButtonText: "No",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            selectedProducts.push(product);
+
+            // Mostrar mensaje de agregado
+            Swal.fire({
+              title: `${product.title} ha sido agregado a su pedido.`,
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then(() => {
+              // Preguntar si quiere seguir agregando productos
+              Swal.fire({
+                title: "¿Desea agregar otro producto?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "Sí",
+                cancelButtonText: "No",
+              }).then((result) => {
+                if (!result.isConfirmed) {
+                  // Si no quiere continuar, preguntar si desea enviar el pedido
+                  Swal.fire({
+                    title: "¿Desea enviar su pedido por WhatsApp?",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Sí",
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      redirectToWhatsApp();
+                    }
+                  });
+                }
+              });
+            });
+          } else {
+            return;
+          }
+        });
+      };
 
       contentCard.appendChild(title);
       contentCard.appendChild(price);

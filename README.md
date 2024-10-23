@@ -36,7 +36,7 @@ El menú en la versión móvil está diseñado para ser accesible y fácil de us
 
 Accede al proyecto haciendo click en el siguiente enlace:
 
-- **[Las recetas de mamá](https://lasrecetasdemama2024.netlify.app//)**
+- **[Las recetas de mamá](https://las-recetas-de-mama.netlify.app//)**
 
 ---
 

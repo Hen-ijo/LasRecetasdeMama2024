@@ -71,7 +71,7 @@ export const data = {
     {
       id: 4,
       title: "Hamburguesa",
-      price: "$5000 ",
+      price: "$5000",
       link: "#",
       imgPath: "../assets/img/IMG-20241014-WA0028.jpg",
     },

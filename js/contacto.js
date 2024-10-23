@@ -171,3 +171,45 @@ form.addEventListener("submit", (e) => {
   }
 });
 /* Contact Form */
+
+/*
+emailjs.init("service_0vapwx9");
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.getElementById("loader7").classList.remove("none");
+
+    const formData = new FormData(event.target);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", data).then(
+      (response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        document.getElementById("loader7").classList.add("none");
+        Swal.fire({
+          title: "Mensaje enviado!",
+          text: "Tu mensaje ha sido enviado correctamente.",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+        event.target.reset();
+      },
+      (error) => {
+        console.error("FAILED...", error);
+        document.getElementById("loader7").classList.add("none");
+        Swal.fire({
+          title: "Error!",
+          text: "Hubo un problema al enviar tu mensaje.",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+      }
+    );
+  });
+*/

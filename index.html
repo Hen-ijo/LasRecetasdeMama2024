@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#f9f5f0" />
     <meta name="description" content="Las recetas de mamá" />
     <link rel="icon" href="./assets/icons/favicon.webp" />
-    <link rel="favicon" href="./assets/icons/favicon.webp" />
     <link rel="apple-touch-icon" href="./assets/icons/favicon.webp" />
     <link href="./css/styles.css" rel="stylesheet" />
     <script
@@ -14,21 +13,34 @@
       src="https://kit.fontawesome.com/81581fb069.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="./js/utils.js"></script>
     <script defer type="module" src="./js/index.js"></script>
     <title>Las recetas de mamá</title>
   </head>
   <body>
     <header>
-      <div class="container-hero">
+      <div class="desktop">
+        <a class="container-logo-desktop" href="/">
+          <i class="fa-solid fa-mug-hot"></i>
+          <h1 class="logo-desktop">Las recetas de mamá</h1>
+        </a>
+
+        <nav class="navbar-desktop">
+          <ul class="menu-desktop">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/pages/comidas.html">Comidas</a></li>
+            <li><a href="/pages/contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="mobile">
         <a class="container-logo" href="/">
           <i class="fa-solid fa-mug-hot"></i>
           <h1 class="logo">Las recetas de mamá</h1>
         </a>
-      </div>
 
-      <div class="container-navbar">
-        <nav class="navbar container">
+        <nav class="navbar">
           <div class="menu-btn">
             <i class="fa-solid fa-bars"></i>
           </div>
@@ -40,6 +52,8 @@
         </nav>
       </div>
     </header>
+    <div class="overlay"></div>
+
     <section class="banner">
       <div class="content-banner">
         <p>Todo Delicioso</p>
@@ -81,7 +95,6 @@
 
       <section class="container top-products">
         <h2 class="heading-1">Mejores Productos</h2>
-
         <div class="container-loader" id="loader1">
           <div class="loader"></div>
         </div>
@@ -95,11 +108,10 @@
         <div class="loader"></div>
       </div>
       <section class="gallery" id="gallery"></section>
-      <h2 class="message" id="messageGallery">No hay imagenes para mostrar</h2>
+      <h2 class="message" id="messageGallery">No hay imágenes para mostrar</h2>
 
       <section class="container specials">
         <h2 class="heading-1">Especiales</h2>
-
         <div class="container-loader" id="loader3">
           <div class="loader"></div>
         </div>
@@ -111,7 +123,6 @@
 
       <section class="container blogs">
         <h2 class="heading-1">Platos más destacados</h2>
-
         <div class="container-loader" id="loader4">
           <div class="loader"></div>
         </div>
@@ -159,10 +170,10 @@
                 <a href="tel:1167222789">(+54) 1167222789</a>
               </li>
               <li>
-                EmaiL:
-                <a href="mailto:lasrecetasdemama123@gmail.com">
-                  lasrecetasdemama123@gmail.com
-                </a>
+                Email:
+                <a href="mailto:lasrecetasdemama123@gmail.com"
+                  >lasrecetasdemama123@gmail.com</a
+                >
               </li>
             </ul>
           </div>
@@ -194,14 +205,6 @@
               >
                 <i class="fa-brands fa-instagram"></i>
               </a>
-            </div>
-          </div>
-
-          <div class="newsletter">
-            <p class="title-footer">Metodos de Pago</p>
-
-            <div class="content">
-              <img src="./assets/img/payment.png" alt="Pagos" />
             </div>
           </div>
         </div>
